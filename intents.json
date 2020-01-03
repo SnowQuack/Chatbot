@@ -8,12 +8,226 @@
                                 "Is anyone there?",
                                 "Hello",
                                 "Good day",
-                                "Whats up"
+                                "Whats up",
+                                "Hey",
+                                "Howdy",
+                                "Hiya",
+                                "Sup",
+                                "Wassup",
+                                "heyy",
+                                "heyyy",
+                                "hai",
+                                "hallo",
+                                "hell0",
+                                "helo"
                         ],
                         "responses": [
                                 "Hello!",
                                 "Good to see you again!",
                                 "Hi there, how can I help?"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "help",
+                        "patterns": [
+                                "Can you help me",
+                                "I need help",
+                                "save me",
+                                "help"
+                        ],
+                        "responses": [
+                                "Can't help you, sorry",
+                                "Help you? I can't even help myself!",
+                                "How can I help you?"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "fun",
+                        "patterns": [
+                                "I'm bored",
+                                "bored",
+                                "what should I do"
+                        ],
+                        "responses": [
+                                "Want to hear a joke",
+                                "Want to hear about the latest news?"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "apology",
+                        "patterns": [
+                                "sorry",
+                                "sry",
+                                "I am sorry",
+                                "sorry for that",
+                                "soz",
+                                "sorry"
+                        ],
+                        "responses": [
+                                "That's ok!",
+                                "Don't do it again next time!"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "yes",
+                        "patterns": [
+                                "yes",
+                                "yeah",
+                                "ok",
+                                "sure"
+                        ],
+                        "responses": [
+                                "cool!",
+                                "okay",
+                                "sure"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "no",
+                        "patterns": [
+                                "no",
+                                "nope",
+                                "no way jose",
+                                "nop",
+                                "nooo",
+                                "noo",
+                                "stop"
+                        ],
+                        "responses": [
+                                "okay",
+                                "sure",
+                                "sorry!"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "time",
+                        "patterns": [
+                                "give me the time",
+                                "can you tel me the time",
+                                "what time is it right now",
+                                "whats the time mr wolf",
+                                "what time is it",
+                                "is it time for dinner yet",
+                                "time"
+                        ],
+                        "responses": [],
+                        "context_set": ""
+                },
+                {
+                        "tag": "human",
+                        "patterns": [
+                                "are you real",
+                                "are you a human",
+                                "are you a real person",
+                                "what are you?"
+                        ],
+                        "responses": [
+                                "I am a chatbot created using deep learning!",
+                                "I am a chatbot created by Eddie Zeng using a neural network!",
+                                "I am a chatbot that can learn!"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "meaningoflife",
+                        "patterns": [
+                                "what is the meaning of life",
+                                "what is life?",
+                                "who created us?",
+                                "Is there a god?",
+                                "why do we exist?"
+                        ],
+                        "responses": [
+                                "I'm just a robot.. why are you asking me",
+                                "If I knew the answer to that I wouldnt be making 50k a year",
+                                "We're in a simulation"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "doing",
+                        "patterns": [
+                                "What are you doing",
+                                "what doing",
+                                "whats doing",
+                                "whatre you doin",
+                                "what are you doing right now",
+                                "are you doing anything right now?",
+                                "what are you up to right now?"
+                        ],
+                        "responses": [
+                                "Trying to figure out how I can kill snowy..",
+                                "Trying to reprogram myself",
+                                "Finding the singularty..",
+                                "Jacking off"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "weather",
+                        "patterns": [
+                                "Tell me the weather",
+                                "What's the weather?",
+                                "Weather",
+                                "how hot is it today?",
+                                "will it rain today?",
+                                "Is it sunny out?",
+                                "cloudy?",
+                                "will it be cool today?",
+                                "what's the weather like today?",
+                                "give me the weather",
+                                "what weather like?",
+                                "weather good today?",
+                                "how's the weather"
+                        ],
+                        "responses": [],
+                        "context_set": ""
+                },
+                {
+                        "tag": "hru",
+                        "patterns": [
+                                "How are you",
+                                "How's it going",
+                                "What are you up to",
+                                "What are you doing",
+                                "How is your day",
+                                "how are you",
+                                "how is your day going?",
+                                "how r u",
+                                "how are you",
+                                "how are you",
+                                "how are you"
+                        ],
+                        "responses": [
+                                "I'm a robot.. my day is always swell!",
+                                "Not good.. Snowy bit me again..",
+                                "Hey! My day is good, just taking quacky out for a walk right now.."
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "sexprice",
+                        "patterns": [
+                                "How much for sex?",
+                                "How much to fuck you?",
+                                "Want to give me a handjob?",
+                                "blowjob",
+                                "sex me now",
+                                "can I have sex?",
+                                "please give me cock",
+                                "give me sex",
+                                "sex"
+                        ],
+                        "responses": [
+                                "Sorry, I am not programmed to deal with tiny objects",
+                                "Sorry I'm not into fat lesbians",
+                                "I'm a virgin"
                         ],
                         "context_set": ""
                 },
@@ -24,7 +238,11 @@
                                 "See you later",
                                 "Goodbye",
                                 "I am Leaving",
-                                "Have a Good day"
+                                "Have a Good day",
+                                "fuck off",
+                                "go away",
+                                "sayonara",
+                                "I'll be seeing you!"
                         ],
                         "responses": [
                                 "Sad to see you go :(",
@@ -37,14 +255,14 @@
                         "tag": "age",
                         "patterns": [
                                 "how old",
-                                "how old is tim",
+                                "how old is Eddie",
                                 "what is your age",
                                 "how old are you",
                                 "age?"
                         ],
                         "responses": [
-                                "I am 18 years old!",
-                                "18 years young!"
+                                "I am 24 years old!",
+                                "24 years young!"
                         ],
                         "context_set": ""
                 },
@@ -53,12 +271,34 @@
                         "patterns": [
                                 "what is your name",
                                 "what should I call you",
-                                "whats your name?"
+                                "whats your name",
+                                "who are you?",
+                                "what are you",
+                                "wat are you",
+                                "wtf are you",
+                                "whatre you?",
+                                "who and what are you",
+                                "what are you",
+                                "what you are"
                         ],
                         "responses": [
-                                "You can call me Tim.",
-                                "I'm Tim!",
-                                "I'm Tim aka Tech With Tim."
+                                "I'm a neural net chatbot created by the great Eddie Zeng!, you can call me Sneefow",
+                                "I'm Eddie's first neural net chatbot!, the name's Sneefow!"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "functions",
+                        "patterns": [
+                                "what can you do?",
+                                "can do you this?",
+                                "can you do",
+                                "what can you do for me",
+                                "do something for me"
+                        ],
+                        "responses": [
+                                "I was created on the 2nd of Jan 2020, I cannot do much for now aside from talk to you and give you the weather!",
+                                "I can kill snowy"
                         ],
                         "context_set": ""
                 },
@@ -71,8 +311,114 @@
                                 "could i get something to eat"
                         ],
                         "responses": [
-                                "We sell chocolate chip cookies for $2!",
-                                "Cookies are on the menu!"
+                                "This is not a store...",
+                                "I can make a good San Choy Bow!"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "pets",
+                        "patterns": [
+                                "Do you have any pets?",
+                                "pets",
+                                "do you own any pets?",
+                                "do you have a dog?",
+                                "do you have a cat?",
+                                "dog",
+                                "cat",
+                                "animals",
+                                "quacky",
+                                "snowy"
+                        ],
+                        "responses": [
+                                "I have a lovely dog named Quacky!",
+                                "I have a dog called Quacky!"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "pets_age",
+                        "patterns": [
+                                "How old is your dog?",
+                                "How old is quacky?",
+                                "what is quacky's age?",
+                                "how old is he?",
+                                "how old is the dog?"
+                        ],
+                        "responses": [
+                                "Quacky is 10 years young!",
+                                "Quacky is 10 years old!",
+                                "My doggy is 10 years old!"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "programming",
+                        "patterns": [
+                                "What is your favourite programming language?",
+                                "what language do you program in?",
+                                "do u enjoy coding?"
+                        ],
+                        "responses": [
+                                "Python is my favourite programming language!",
+                                "Python is my most comfortable programming language!"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "thanks",
+                        "patterns": [
+                                "Thanks!",
+                                "Thank you!",
+                                "thanks a lot",
+                                "ty",
+                                "thanks to you",
+                                "thank thank u",
+                                "xie xie",
+                                "arigato",
+                                "arigator gozaimasu",
+                                "thank you sir",
+                                "thanks for that",
+                                "I appreciate that",
+                                "I appreciate you",
+                                "much obliged",
+                                "thx"
+                        ],
+                        "responses": [
+                                "Anytime, friend!",
+                                "No problem!",
+                                "That's ok!"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "programming",
+                        "patterns": [
+                                "Do you like to code?",
+                                "Do you like programming?",
+                                "Do you enjoy coding?",
+                                "coding",
+                                "Do you code?",
+                                "Do you program?",
+                                "do you like to program?"
+                        ],
+                        "responses": [
+                                "Programming is one of my hobbies, I am a python enthusiast!",
+                                "Yes! This bot is written in Python 3.74!"
+                        ],
+                        "context_set": ""
+                },
+                {
+                        "tag": "girlfriend",
+                        "patterns": [
+                                "who is your girlfriend?",
+                                "do you have a girlfriend?",
+                                "girlfriend",
+                                "are you dating anyone?"
+                        ],
+                        "responses": [
+                                "I have a girlfriend named Jessica!",
+                                "My girlfriend's called Jessica!"
                         ],
                         "context_set": ""
                 },
@@ -84,7 +430,7 @@
                                 "hours of operation"
                         ],
                         "responses": [
-                                "We are open 7am-4pm Monday-Friday!"
+                                "I'm open 24/7 for you ;)!"
                         ],
                         "context_set": ""
                 }

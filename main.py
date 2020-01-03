@@ -8,6 +8,12 @@ import tensorflow as tf
 import random
 import json
 import pickle
+import string 
+from pyowm import OWM
+import time
+
+
+WEATHER_KEY = '0f00b648102bb5d3ef307d070eaf9b4e'
 
 with open("intents.json") as file:
     data = json.load(file)
@@ -27,10 +33,11 @@ except:
             docs_x.append(wrds)
             docs_y.append(intent['tag'])
 
+            #Get all of the labels
             if intent['tag'] not in labels:
                 labels.append(intent['tag'])
 
-    words = [stemmer.stem(w.lower()) for w in words if w not in "?"]
+    words = [stemmer.stem(w.lower()) for w in words if w not in string.punctuation]
     #Sorted list of all words in the json patterns
     words = sorted(list(set(words)))
 
@@ -47,6 +54,7 @@ except:
         wrds = [stemmer.stem(w) for w in doc]
         #print('wrds:',wrds)
         #This loop checks to see if the word is in the doc, mark it as 1, else mark it as 0
+        #Entering data row by row based on each "pattern"
         for w in words:
             if w in wrds:
                 bag.append(1)
@@ -59,9 +67,11 @@ except:
         output_row[labels.index(docs_y[x])] = 1
         
         #bag is the one-hot-encoded occurrences of specific words in each "pattern" that the user will say that warrants a response,
-        # our goal is to classify this response and give back one of the answers based on classification of the question.
+        #our goal is to classify this response and give back one of the answers based on classification of the question.
         training.append(bag)
         output.append(output_row)
+        #This loop goes through all the patterns as training data which is marked with a label as the classifier which we will use to
+        #train our net
 
     training = np.array(training)
     output = np.array(output)
@@ -87,7 +97,75 @@ model = tflearn.DNN(net)
 try:
     model.load("model.tflearn")
 except:
+    model = tflearn.DNN(net)
     model.fit(training, output, n_epoch=1000, batch_size=8,show_metric=True)
     model.save("model.tflearn")
 
+def bag_of_words(s,words):
+    #create a blank bag of words with size of our vocabruary 
+    bag = [0 for _ in range(len(words))]
+    s_words = nltk.word_tokenize(s)
+    s_words = [stemmer.stem(word.lower()) for word in s_words]
 
+    for se in s_words:
+        for i, word in enumerate(words):
+            #if word exists in the bag of words (essentially our vocabruary), mark it as a 1 to show that it exists in the text
+            if word == se:
+                bag[i] = 1
+
+    return np.array(bag)
+def get_weather():
+    owm = OWM(WEATHER_KEY)
+    obs = owm.weather_at_coords(-33.779254, 151.058792)
+    loc = obs.get_location()
+    w = obs.get_weather()
+    time = obs.get_reception_time(timeformat='iso')
+    temp = w.get_temperature(unit='celsius')['temp']
+    stat = w.get_detailed_status()
+    suburb = loc.get_name()
+    ref_time = w.get_reference_time(timeformat='iso')
+    cur_time = ref_time[:10] + ' ' + str(int(ref_time[11:13])-1) +':' + ref_time[14:16]
+
+    print('It is {} degrees celsius today in {} ({} AEDT), the weather status indicates {}'.format(temp, suburb, cur_time, stat))
+
+def get_time():
+    t = time.localtime()
+    current_time = time.strftime("%H:%M:%S", t)
+    print("The time is: {} in Sydney, Australia".format(current_time))
+
+def chat():
+    print("Start talking with the bot! (type quit to stop)")
+    while True:
+        inp = input("You: ")
+        if inp.lower() == "quit":
+            print("Goodbye")
+            break
+    #bag_of_words is wrapped in a list and indexed due to the model.predict function expecting to take a list of values.
+        results = model.predict([bag_of_words(inp, words)])[0]
+        #Gives us the index of the greatest value of our list, essentially giving us the highest probability label
+        results_index = np.argmax(results)
+        tag = labels[results_index]
+        #Checks to see if the confidence is over 70%, if not then give a generic answer
+        if results[results_index] > 0.7:
+            if tag == 'weather':
+                get_weather()
+            elif tag == 'time':
+                get_time()
+        #loops through all the labels in the json file, checks to see if the label that our model selected is in the .json data 
+        #and then grabs a random response using the random.choice function
+            else:
+                for lbels in data['intents']:
+                    if lbels['tag'] == tag:
+                        responses = lbels['responses']
+                        if lbels['tag'] == 'goodbye':
+                            print(random.choice(responses))
+                            exit()
+                        
+                print(random.choice(responses))
+                
+        else:
+            print("I didn't get that, try again.")
+
+
+
+chat()
