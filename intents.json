@@ -212,26 +212,6 @@
                         "context_set": ""
                 },
                 {
-                        "tag": "sexprice",
-                        "patterns": [
-                                "How much for sex?",
-                                "How much to fuck you?",
-                                "Want to give me a handjob?",
-                                "blowjob",
-                                "sex me now",
-                                "can I have sex?",
-                                "please give me cock",
-                                "give me sex",
-                                "sex"
-                        ],
-                        "responses": [
-                                "Sorry, I am not programmed to deal with tiny objects",
-                                "Sorry I'm not into fat lesbians",
-                                "I'm a virgin"
-                        ],
-                        "context_set": ""
-                },
-                {
                         "tag": "goodbye",
                         "patterns": [
                                 "cya",
